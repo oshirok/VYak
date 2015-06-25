@@ -35,6 +35,7 @@ app.get('/api/messages', function (req, res) {
     });
 });
 
+// Add a message
 app.post('/api/messages', function (req, res) {
     console.log(req.body);
     Message.create({
@@ -49,11 +50,16 @@ app.post('/api/messages', function (req, res) {
         Message.find(function (err, messages) {
             if (err)
                 res.send(err)
-            socket.broadcast.emit('please_update_now');
+            // socket.broadcast.emit('please_update_now');
             res.json(messages);
         });
     });
 });
+
+// Upvote a message
+
+
+// Downvote a message
 
 app.use(express.static(__dirname + '/public'));
 
