@@ -8,7 +8,7 @@ function mainController($scope, $http) {
 	//gets message from node 
     $http.get('/api/messages')
         .success(function(data) {
-            $scope.message = data;
+            $scope.messages = data;
             console.log(data);
         })
         .error(function(data) {
@@ -18,11 +18,11 @@ function mainController($scope, $http) {
     // when submitting the add form, send the text to the node API
     $scope.createMessage = function() {
 		//send the text to node
-        $http.post('/api/message', $scope.formData)
+        $http.post('/api/messages', $scope.formData)
             .success(function(data) {
 				// clear the form, allowing the user to send more messages
                 $scope.formData = {}; 
-                $scope.message = data;
+                $scope.messages = data;
                 console.log(data);
             })
             .error(function(data) {
