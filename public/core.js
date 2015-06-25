@@ -5,7 +5,8 @@ function mainController($scope, $http) {
     $scope.formData = {};
 
     // when landing on the page, get all messages and show them
-    $http.get('/api/message')
+	//gets message from node 
+    $http.get('/api/messages')
         .success(function(data) {
             $scope.message = data;
             console.log(data);
@@ -16,6 +17,7 @@ function mainController($scope, $http) {
 
     // when submitting the add form, send the text to the node API
     $scope.createMessage = function() {
+		//send the text to node
         $http.post('/api/message', $scope.formData)
             .success(function(data) {
 				// clear the form, allowing the user to send more messages
@@ -24,6 +26,7 @@ function mainController($scope, $http) {
                 console.log(data);
             })
             .error(function(data) {
+				//this should not happen
                 console.log('Error: ' + data);
             });
     };
