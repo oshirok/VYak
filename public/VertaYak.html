@@ -7,11 +7,12 @@
     <!-- META -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"><!-- load bootstrap -->
 
     <title>VertaYak</title>
 
     <!-- SCROLLS -->
-    <link rel="stylesheet" href="C:\Users\chunmi\Desktop\VertaYak\bootstrap\css\bootstrap.min.css"><!-- load bootstrap -->
+	<link rel="stylesheet" type="text/css" href="responsive.css">
     <style>
         html                    { overflow-y:scroll; }
         body { background: #f2f2f2 url('images/bg-tile.jpg'); font-size: 62.5%; padding-bottom: 65px; }
@@ -28,18 +29,19 @@
 <body ng-controller="mainController">
     <div class="container">
 
-        <!-- HEADER AND message COUNT -->
-        <div class="jumbotron text-center">
+        <!-- HEADER AND MESSAGE FEED -->
+        <div class="message-feed text-center">
             <h1>Get a live feed of what everyone's saying around you. <span class="label label-info"></span></h1>
         </div>
 
-        <!-- message LIST -->
+        <!-- MESSAGE FEED -->
         <div id="message-list" class="row">
             <div class="col-sm-4 col-sm-offset-4">
 
                 <!-- LOOP OVER THE MESSAGES IN $scope.messages -->
                 <div class="checkbox" ng-repeat="message in messages">
                     <label>
+						<!-- WE WOULD DISPLAY THE MESSAGES HERE -->
                         {{ message.text }}
                     </label>
                 </div>
