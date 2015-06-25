@@ -5,5 +5,47 @@
   var socket = io();
 </script>
 </head>
-<body>    WEEEEEEEEEEEEEEEEEEEEEEEEEEe</body>
+<!-- SET THE CONTROLLER AND GET ALL MESSAGES -->
+<body ng-controller="mainController">
+    <div class="container">
+
+        <!-- HEADER AND MESSAGE FEED -->
+        <div class="message-feed text-center">
+            <h1>Get a live feed of what everyone's saying around you. <span class="label label-info"></span></h1>
+        </div>
+
+        <!-- MESSAGE FEED -->
+        <div id="message-list" class="row">
+            <div class="col-sm-4 col-sm-offset-4">
+
+                <!-- LOOP OVER THE MESSAGES IN $scope.messages -->
+                <div class="checkbox" ng-repeat="message in messages">
+                    <label>
+						<!-- WE WOULD DISPLAY THE MESSAGES HERE -->
+                        {{ messages.text }}
+                    </label>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- FORM TO CREATE MESSAGES -->
+        <div id="message-form" class="row">
+            <div class="col-sm-8 col-sm-offset-2 text-center">
+                <form>
+                    <div class="form-group">
+
+                        <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
+                        <input type="text" class="form-control input-lg text-center" placeholder="Insert Message Here!" ng-model="formData.text">
+                    </div>
+
+                    <!-- createmessage() WILL CREATE NEW MESSAGES -->
+                    <button type="submit" class="btn btn-primary btn-lg" ng-click="createmessage()">Send</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</body>
 </html>
