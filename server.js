@@ -22,9 +22,6 @@ var Message = mongoose.model('Message', {
     text : String,
 });
 
-app.use(express.static(__dirname + '/public'));
-app.listen(port);
-
 // Making RESful API routes
 app.get('/api/messages', function (req, res) {
     
@@ -54,5 +51,8 @@ app.post('/api/messages', function (req, res) {
         });
     });
 });
+
+app.use(express.static(__dirname + '/public'));
+app.listen(port);
 
 console.log("WEEEEEEEEEEEEE" + port);
