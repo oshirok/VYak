@@ -56,7 +56,7 @@
                 <!-- LOOP OVER THE MESSAGES IN $scope.messages -->
                 <div class="checkbox" ng-repeat="message in messages">
                     <label>
-                        <!-- WE WOULD DISPLAY THE MESSAGES HERE -->
+                        <!-- DISPLAY THE MESSAGES HERE -->
                         {{ messages.text }}
                     </label>
                 </div>
@@ -74,8 +74,8 @@
                         <input type="text" class="form-control input-lg text-center" placeholder="Insert Message Here!" ng-model="formData.text">
                     </div>
 
-                    <!-- createmessage() WILL CREATE NEW MESSAGES -->
-                    <button type="submit" class="btn btn-primary btn-lg" ng-click="createmessage()">Send</button>
+                    <!-- createMessage() WILL CREATE NEW MESSAGES -->
+                    <button type="submit" class="btn btn-primary btn-lg" ng-click="createMessage()">Send</button>
                 </form>
             </div>
         </div>
