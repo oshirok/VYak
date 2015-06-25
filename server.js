@@ -7,10 +7,12 @@ var server = require('http').Server(app);
 var io = require('socket.io')(server);
 
 var http = require('http');
-var port = process.env.PORT || 3000; // THIS MUST BE UPPERCASED
+var port = process.env.PORT || 3000; // port MUST BE UPPERCASED
 
+// Uses date to make timestamps
 var date = new Date();
 
+// Connects to database
 mongoose.connect('mongodb://vyak:vyak@ds047762.mongolab.com:47762/vyak');
 
 app.use(bodyParser.urlencoded({ 'extended': 'true' }));            // parse application/x-www-form-urlencoded
@@ -18,13 +20,15 @@ app.use(bodyParser.json());                                     // parse applica
 app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
 app.use(methodOverride());
 
-// Models
+
+// Models for database
 var Message = mongoose.model('Message', {
     timestamp : Number,
     text : String,
 });
 
 // Making RESful API routes
+// API: Get messages
 app.get('/api/messages', function (req, res) {
     
     Message.find(function (err, messages) {
@@ -35,7 +39,7 @@ app.get('/api/messages', function (req, res) {
     });
 });
 
-// Add a message
+// API: Add message
 app.post('/api/messages', function (req, res) {
     console.log(req.body);
     Message.create({
@@ -56,19 +60,20 @@ app.post('/api/messages', function (req, res) {
     });
 });
 
-// Upvote a message
+// API: Todo: Upvote a message
 
+// API: Todo: Downvote a message
 
-// Downvote a message
-
+// HTTP: serve files from the public folder
 app.use(express.static(__dirname + '/public'));
 
 // Server, not app must listen
 server.listen(port);
 
-
+// Read new connection
 io.on('connection', function (socket) {
     console.log('a user connected');
 });
 
+// Print the port
 console.log("WEEEEEEEEEEEEE" + port);
