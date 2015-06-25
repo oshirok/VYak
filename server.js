@@ -3,8 +3,8 @@ var app = express();
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');    // pull information from HTML POST (express4)
 var methodOverride = require('method-override'); // simulate DELETE and PUT (express4)
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
 
 var http = require('http');
 var port = process.env.PORT || 3000; // THIS MUST BE UPPERCASED
@@ -24,9 +24,6 @@ var Message = mongoose.model('Message', {
     text : String,
 });
 
-io.on('connection', function (socket) {
-    console.log('a user connected');
-});
 
 // Making RESful API routes
 app.get('/api/messages', function (req, res) {
@@ -59,6 +56,13 @@ app.post('/api/messages', function (req, res) {
 });
 
 app.use(express.static(__dirname + '/public'));
-app.listen(port);
+
+// Server, not app must listen
+server.listen(port);
+
+
+io.on('connection', function (socket) {
+    console.log('a user connected');
+});
 
 console.log("WEEEEEEEEEEEEE" + port);
