@@ -7,7 +7,7 @@ function mainController($scope, $http) {
     // get all messages and show them
     $http.get('/api/messages')
         .success(function(data) {
-            $scope.message = data;
+            $scope.messages = data;
             console.log(data);
         })
         .error(function(data) {
@@ -21,7 +21,7 @@ function mainController($scope, $http) {
             .success(function(data) {
 				// clear the form, allowing the user to send more messages
                 $scope.formData = {}; 
-                $scope.message = data;
+                $scope.messages = data;
                 console.log(data);
             })
             .error(function(data) {
