@@ -24,7 +24,6 @@ var Message = mongoose.model('Message', {
     text : String,
 });
 
-
 // Making RESful API routes
 app.get('/api/messages', function (req, res) {
     
@@ -50,6 +49,7 @@ app.post('/api/messages', function (req, res) {
         Message.find(function (err, messages) {
             if (err)
                 res.send(err)
+            socket.broadcast.emit('please_update_now');
             res.json(messages);
         });
     });
