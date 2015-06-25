@@ -30,6 +30,15 @@ function mainController($scope, $http, socket) {
 	
 	socket.on('please_update_now', function (){
 		console.log("reached socket.");
+		// get all messages and show them
+    $http.get('/api/messages')
+        .success(function(data) {
+            $scope.messages = data;
+            console.log(data);
+        })
+        .error(function(data) {
+            console.log('Error: ' + data);
+        });
 	});
 
     // get all messages and show them
