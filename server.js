@@ -50,7 +50,7 @@ app.post('/api/messages', function (req, res) {
         Message.find(function (err, messages) {
             if (err)
                 res.send(err)
-            // socket.broadcast.emit('please_update_now');
+            io.sockets.broadcast.emit('please_update_now');
             res.json(messages);
         });
     });
