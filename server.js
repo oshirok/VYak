@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');    // pull information from HTML POST (
 var methodOverride = require('method-override'); // simulate DELETE and PUT (express4)
 
 var http = require('http');
-var port = process.env.port || 1337;
+var port = process.env.port || 80;
 
 var date = new Date();
 
