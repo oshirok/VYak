@@ -1,9 +1,44 @@
-<html>
+<!-- index.html -->
+<!doctype html>
+
+<!-- ASSIGN OUR ANGULAR MODULE -->
+<html ng-app="vertaYak">
 <head>
+    <!-- META -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"><!-- load bootstrap -->
+    <link rel="shortcut icon" href="images/favicon.ico"><!-- add favicon -->
+
+    <title>VertaYak</title>
+
+    <!-- SCROLLS -->
+    <link rel="stylesheet" type="text/css" href="responsive.css">
+    <style>
+        html {
+            overflow-y: scroll;
+        }
+
+        body {
+            background: #f2f2f2 url('images/bg-tile.jpg');
+            font-size: 62.5%;
+            padding-bottom: 65px;
+        }
+
+        #message-list {
+            margin-bottom: 30px;
+        }
+    </style>
+
+    <!-- SPELLS -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script><!-- load jquery -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script><!-- load angular -->
+    <script src="core.js"></script>
     <script src="https://cdn.socket.io/socket.io-1.3.5.js"></script>
     <script>
         var socket = io();
     </script>
+
 </head>
 <!-- SET THE CONTROLLER AND GET ALL MESSAGES -->
 <body ng-controller="mainController">
@@ -21,7 +56,7 @@
                 <!-- LOOP OVER THE MESSAGES IN $scope.messages -->
                 <div class="checkbox" ng-repeat="message in messages">
                     <label>
-						<!-- WE WOULD DISPLAY THE MESSAGES HERE -->
+                        <!-- WE WOULD DISPLAY THE MESSAGES HERE -->
                         {{ messages.text }}
                     </label>
                 </div>
