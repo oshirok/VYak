@@ -1,7 +1,7 @@
 // public/core.js
 var vertaYak = angular.module('vertaYak', []);
 
-app.factory('socket', function ($rootScope) {
+vertaYak.factory('socket', function ($rootScope) {
   var socket = io.connect();
   return {
     on: function (eventName, callback) {
