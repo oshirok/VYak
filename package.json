@@ -1,0 +1,10 @@
+{
+  "name": "VertaYak",
+  "version": "0.0.0",
+  "description": "VertaYak",
+  "main": "server.js",
+  "author": {
+    "name": "oshiroke",
+    "email": ""
+  }
+}
