@@ -43,7 +43,7 @@ app.get('/api/messages', function (req, res) {
 app.post('/api/messages', function (req, res) {
     console.log(req.body);
     Message.create({
-        timestamp: date.getTime(),
+        timestamp: new Date(date.getTime()),
         text: req.body.text,
         done: false
     }, function (err, messages) {
