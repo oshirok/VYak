@@ -45,8 +45,11 @@
 
               <div class="content-block" layout="row" flex>
                   <md-content layout="column" layout-fill style="padding-bottom: 32px;" class="whiteframedemoBasicUsage">
-                      <md-whiteframe class="md-whiteframe-z1" layout layout-align="center center" ng-repeat="message in messages">
-                          <span>{{message.text}}</span>
+                      <md-whiteframe class="md-whiteframe-z1" layout layout-align="left center" ng-repeat="message in messages">
+                          <div layout="column">
+                              <h3 class="md-title">{{message.text}}</h3>
+                              <p>32 pts. Upvote. Downvote. Submitted 10 minutes ago...</p>
+                          </div>
                       </md-whiteframe>
                   </md-content>
               </div>

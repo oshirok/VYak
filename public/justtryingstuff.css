@@ -7,7 +7,7 @@
 .whiteframedemoBasicUsage md-whiteframe {
   background: #fff;
   margin: 20px;
-  padding: 20px; }
+  padding: 16px 24px 8px 24px; }
 
 .banner {
     background-color: orange
