@@ -23,7 +23,7 @@
           <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"><!-- load bootstrap -->
           <meta name="viewport" content="initial-scale=1" />
       </head>
-      <body layout="column" layout-align="start center" ng-controller="mainController">
+      <body layout="column" ng-controller="mainController">
           <md-toolbar id="banner" layout="row">
               <div class="md-toolbar-tools">
                   <md-button ng-click="toggleSidenav('left')" hide-gt-sm class="md-icon-button">
@@ -33,26 +33,23 @@
               </div>
           </md-toolbar>
 
-          <div id="content">
-              <div layout="row">
+          <md-content id="content" layout-align="start center">
+              <div class="content-block" layout="row">
+                      <md-input-container flex>
+                          <label>Say Something!</label>
+                          <input ng-model="formData.text">
+                      </md-input-container>
+                  <md-button class="md-raised md-primary" ng-click="createMessage()">Submit!</md-button>
               </div>
 
-              <md-content layout-padding>
-                  <md-input-container flex>
-                      <label>Say Something!</label>
-                      <input ng-model="formData.text">
-                  </md-input-container>
-                  <md-button class="md-raised" ng-click="createMessage()">Submit!</md-button>
-              </md-content>
-
-              <div layout="row" flex>
+              <div class="content-block" layout="row" flex>
                   <md-content layout="column" layout-fill style="padding-bottom: 32px;" class="whiteframedemoBasicUsage">
                       <md-whiteframe class="md-whiteframe-z1" layout layout-align="center center" ng-repeat="message in messages">
                           <span>{{message.text}}</span>
                       </md-whiteframe>
                   </md-content>
               </div>
-          </div>
+          </md-content>
 
           <!-- Angular Material Dependencies -->
           <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js"></script>
