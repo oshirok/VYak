@@ -36,7 +36,7 @@ app.get('/api/messages', function (req, res) {
             res.send(err);
         var a = messages;
         var keys = [];
-        for (i in a) { 
+        for (i in messages) { 
             keys.push(i);
         }
         keys.reverse();
