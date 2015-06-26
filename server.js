@@ -76,4 +76,4 @@ io.on('connection', function (socket) {
 });
 
 // Print the port
-console.log("WEEEEEEEEEEEEE" + port);
+//console.log("WEEEEEEEEEEEEE" + port);
