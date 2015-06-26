@@ -49,7 +49,7 @@
                       <md-whiteframe class="md-whiteframe-z1" layout layout-align="left center" ng-repeat="message in messages">
                           <div layout="column">
                               <h3 class="md-title">{{message.text}}</h3>
-                              <p><span>{{message.vote}}</span> pts. <span>Upvote.</span> <span>Downvote.</span> Submitted <span data-livestamp={{message.timestamp}}></span></p>
+                              <p><span>{{message.vote}}</span> pts. <input type="image" src="/images/ic_exposure_plus_1_black_24dp_1x.png" /> <input type="image" src="/images/ic_exposure_neg_1_black_24dp_1x.png" /> Submitted <span data-livestamp={{message.timestamp}}></span></p>
                           </div>
                       </md-whiteframe>
                   </md-content>
