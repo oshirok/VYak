@@ -54,7 +54,7 @@
             <div class="col-sm-4 col-sm-offset-4">
 			
                 <!-- LOOP OVER THE MESSAGES IN $scope.messages -->
-                <div class="checkbox" ng-repeat="messages in messages">
+                <div class="message-list" ng-repeat="messages in messages">
                     <label>
                         <!-- DISPLAY THE MESSAGES HERE -->
                         <h4>{{ messages.text }} <sub>{{messages.timestamp}}</sub></h4>
