@@ -34,7 +34,6 @@ app.get('/api/messages', function (req, res) {
     Message.find(function (err, messages) {
         if (err)
             res.send(err);
-        messages.timestamp = new Date(messages.timestamp);
         res.json(messages.reverse());
 
     });
