@@ -44,3 +44,7 @@ Temporary Items
 
 #nodejs
 node_modules
+
+#VStudio
+.ntvs_analysis.dat
+.ntvs_analysis.dat.tmp
