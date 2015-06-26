@@ -23,8 +23,9 @@ app.use(methodOverride());
 
 // Models for database
 var Message = mongoose.model('Message', {
-    timestamp : String,
+    timestamp : number,
     text : String,
+    //vote: number
 });
 
 // Making RESful API routes
@@ -34,6 +35,7 @@ app.get('/api/messages', function (req, res) {
     Message.find(function (err, messages) {
         if (err)
             res.send(err);
+        //messages now shown from newest to oldest
         res.json(messages.reverse());
 
     });
@@ -43,8 +45,9 @@ app.get('/api/messages', function (req, res) {
 app.post('/api/messages', function (req, res) {
     console.log(req.body);
     Message.create({
-        timestamp: new Date(date.getTime()),
+        timestamp: date.getTime(),
         text: req.body.text,
+        //vote: 1,
         done: false
     }, function (err, messages) {
         if (err)
@@ -55,12 +58,13 @@ app.post('/api/messages', function (req, res) {
             if (err)
                 res.send(err)
             io.sockets.emit('please_update_now');
-            res.json(messages);
+            //puts new message on top, done to eliminate ~100ms placement on bottom
+            res.json(messages.reverse());
         });
     });
 });
 
-/* API: Todo: Upvote a message */ 
+/* API: Todo: Upvote a message */
 
 /* API: Todo: Downvote a message */ 
 
