@@ -44,8 +44,9 @@ app.get('/api/messages', function (req, res) {
 // API: Add message
 app.post('/api/messages', function (req, res) {
     console.log(req.body);
+    console.log("d");
     Message.create({
-        timestamp: date.getTime()/1000,
+        timestamp: new Date().getTime()/1000,
         text: req.body.text,
         //vote: 1,
         done: false
@@ -78,6 +79,6 @@ server.listen(port);
 io.on('connection', function (socket) {
     console.log('a user connected');
 });
-
+console.log("test");
 // Print the port
 //console.log("WEEEEEEEEEEEEE" + port);
