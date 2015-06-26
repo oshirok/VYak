@@ -34,7 +34,11 @@ function mainController($scope, $http, socket) {
     $http.get('/api/messages')
         .success(function(data) {
             $scope.messages = data;
-            console.log(data);
+			/*for(i in data){
+				console.log(i);
+				i.timestamp = new Date(parseInt(data.timestamp));
+			}
+            console.log(data);*/
         })
         .error(function(data) {
             console.log('Error: ' + data);
