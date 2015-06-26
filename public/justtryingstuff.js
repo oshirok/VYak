@@ -13,6 +13,7 @@ vertaYak.config(function ($mdThemingProvider) {
         .backgroundPalette('blue-grey')
 })
 
+// Needed to create the socket
 vertaYak.factory('socket', function ($rootScope) {
     var socket = io.connect();
     return {
