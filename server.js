@@ -45,7 +45,7 @@ app.get('/api/messages', function (req, res) {
 app.post('/api/messages', function (req, res) {
     console.log(req.body);
     Message.create({
-        timestamp: date.getTime(),
+        timestamp: date.getTime()/1000,
         text: req.body.text,
         //vote: 1,
         done: false
