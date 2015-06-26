@@ -92,5 +92,31 @@ vertaYak.controller('mainController', ['$scope', '$http', 'socket', function ($s
                 console.log('Error: ' + data);
             });
     };
+	
+	$scope.upVote = function (id) {
+		$http.post('/api/upvote/' + id)
+			.success(function (data) {
+				//Mark and don't let user click again
+				console.log("UpVoted!");
+				console.log(data);
+			})
+			.error(function (data){
+				console.log("Upvote error.");
+				console.log(data);
+			});
+	};
+	
+	$scope.downVote = function (id) {
+		$http.post('/api/downvote/' + id)
+			.success(function (data) {
+				//Mark and don't let user click again
+				console.log("DownVoted!");
+				console.log(data);
+			})
+			.error(function (data){
+				console.log("Down vote error.");
+				console.log(data);
+			});
+	};
 
 }]);
