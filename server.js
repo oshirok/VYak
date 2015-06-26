@@ -37,12 +37,13 @@ app.get('/api/messages', function (req, res) {
         var a = messages;
         var keys = [];
         for (i in messages) { 
-            keys.push(i);
+            keys.push(i); // put into array
         }
         console.log(keys);
-        keys.reverse();
+        keys.reverse(); //reverse 
         console.log(keys);
         res.json(keys); // return all messages in JSON format
+        res.json(messages);
 
     });
 });
