@@ -34,7 +34,15 @@ app.get('/api/messages', function (req, res) {
     Message.find(function (err, messages) {
         if (err)
             res.send(err);
-        res.json(messages); // return all messages in JSON format
+        var a = messages;
+        var keys = [];
+        for (i in a) { 
+            keys.push(i);
+        }
+        keys.reverse();
+        console.log(keys);
+        res.json(keys); // return all messages in JSON format
+        console.log(keys);
 
     });
 });
@@ -60,9 +68,9 @@ app.post('/api/messages', function (req, res) {
     });
 });
 
-// API: Todo: Upvote a message
+/* API: Todo: Upvote a message */ 
 
-// API: Todo: Downvote a message
+/* API: Todo: Downvote a message */ 
 
 // HTTP: serve files from the public folder
 app.use(express.static(__dirname + '/public'));
