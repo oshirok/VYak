@@ -42,7 +42,7 @@ app.get('/api/messages', function (req, res) {
         console.log(keys);
         keys.reverse(); //reverse 
         console.log(keys);
-        res.json(keys); // return all messages in JSON format
+        //res.json(keys); // return all messages in JSON format
         res.json(messages);
 
     });
