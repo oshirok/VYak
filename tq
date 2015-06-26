@@ -1,0 +1,86 @@
+Kent Oshiro (38):
+      :lollipop: Added .gitattributes & .gitignore files
+      Initial Commit
+      made public folder
+      asdfasdf
+      api works
+      update
+      update
+      changed port number
+      capitalized port
+      comments
+      testing stuff
+      Merge remote-tracking branch 'origin/master'
+      asdfdsafsadfa
+      asdfasdfasdfasdf
+      fixed!
+      more changes
+      fixed socket
+      added socket broadcast
+      removed the broadcast
+      Merge remote-tracking branch 'origin/master'
+      fixed broadcast
+      FIXED THE BROADCAST!!!!!!!!!!!!!!!!!!
+      documented stuff
+      aaa
+      hmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+      justryingstuff
+      testing angularyak
+      just updating now
+      Merge remote-tracking branch 'origin/master'
+      ignoring the ntvs_analysis,dat
+      fixed Number
+      fixed some interface stuff
+      more quick fixes
+      hmmmmmmmmmmmmmmm
+      updated client stuff
+      enabled live time
+      updating
+      Merge branch 'master' of https://github.com/oshirok/VYak
+
+Michael Chun (44):
+      Added basic front end
+      Small Changes
+      Added favicon
+      Replaced index.html
+      small change
+      Small Changes
+      Its not camel case?
+      Name changes and Comments
+      small change
+      Checking local scope
+      Small change
+      Made the message font larger.
+      this is likely going to break
+      small changes
+      Refreshes by calling Get
+      Made things jumbotron
+      test commit
+      reverse json
+      small change
+      small change
+      small change
+      s
+      a
+      It reverses now!
+      small changes
+      small change
+      format timestamp
+      type change
+      Have get() convert timestamp
+      small change
+      Show timestamp on messages
+      small changes
+      Time changes
+      small name change
+      places new messages on top immediately
+      minor change
+      Displays time correctly
+      Merge branch 'master' of https://github.com/oshirok/VYak
+      small stuff
+      Merge branch 'master' of https://github.com/oshirok/VYak
+      Upvote and Downvote API
+      Arrows
+      Merge branch 'master' of https://github.com/oshirok/VYak
+      added images
+

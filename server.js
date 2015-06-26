@@ -51,6 +51,7 @@ app.post('/api/messages', function (req, res) {
         vote: 1,
         done: false
     }, function (err, messages) {
+        io.sockets.emit('please_update_now');
         if (err)
             res.send(err);
         

@@ -3,6 +3,13 @@
 // public/core.js
 var vertaYak = angular.module('vertaYak', ['ngMaterial']);
 
+function AppCtrl($scope, socket){
+	socket.on('please_update_now', function(){
+		console.log('reached the socket in app ctrl');
+	});
+	
+}
+
 // Needed to config the theme
 vertaYak.config(function ($mdThemingProvider) {
     $mdThemingProvider
