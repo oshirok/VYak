@@ -1,0 +1,88 @@
+﻿<!-- index.html -->
+<!doctype html>
+
+<!-- ASSIGN OUR ANGULAR MODULE -->
+<html ng-app="vertaYak">
+<head>
+    <!-- META -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"><!-- load bootstrap -->
+    <link rel="shortcut icon" href="images/favicon.ico"><!-- add favicon -->
+
+    <title>VertaYak</title>
+
+    <!-- SCROLLS -->
+    <link rel="stylesheet" type="text/css" href="responsive.css">
+    <style>
+        html {
+            overflow-y: scroll;
+        }
+
+        body {
+            background: #f2f2f2 url('images/bg-tile.jpg');
+            font-size: 62.5%;
+            padding-bottom: 65px;
+        }
+
+        #message-list {
+            margin-bottom: 30px;
+        }
+    </style>
+
+    <!-- SPELLS -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script><!-- load jquery -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script><!-- load angular -->
+    <script src="core.js"></script>
+    <script src="https://cdn.socket.io/socket.io-1.3.5.js"></script>
+	<script src="/js/moment.js"></script>
+	<script src="/js/livestamp.min.js"></script>
+    <script>
+        var socket = io();
+    </script>
+
+</head>
+<!-- SET THE CONTROLLER AND GET ALL MESSAGES -->
+<body ng-controller="mainController">
+    <div class="container">
+
+        <!-- HEADER AND MESSAGE FEED -->
+        <div class="message-feed text-center">
+            <h1>Get a live feed of what everyone's saying around you. <span class="label label-info"></span></h1>
+        </div>
+
+        <!-- MESSAGE FEED -->
+        <div id="messages-list" class="message-feed">
+            <div class="col-sm-4 col-sm-offset-4" style="overflow: scroll; padding-bottom:10px; border:3px solid black; height:400px; background-color: #FFFFFF;">
+			
+                <!-- LOOP OVER THE MESSAGES IN $scope.messages -->
+                <div class="message-list" ng-repeat="messages in messages">
+                    <label>
+                        <!-- DISPLAY THE MESSAGES HERE -->
+                        <h4>{{ messages.text }} <span data-livestamp={{messages.timestamp}}></span></h4>
+                    </label>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- FORM TO CREATE MESSAGES -->
+        <div id="message-form" class="message-box">
+            <div class="col-sm-8 col-sm-offset-2 text-center">
+                <form>
+                    <div class="form-group">
+
+                        <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
+                        <input type="text" class="form-control input-lg text-center" placeholder="Insert Message Here!" ng-model="formData.text">
+                    </div>
+
+                    <!-- createMessage() WILL CREATE NEW MESSAGES -->
+                    <button type="submit" class="btn btn-primary btn-lg" ng-click="createMessage()">Send</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
