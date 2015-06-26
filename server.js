@@ -39,10 +39,10 @@ app.get('/api/messages', function (req, res) {
         for (i in messages) { 
             keys.push(i);
         }
+        console.log(keys);
         keys.reverse();
         console.log(keys);
         res.json(keys); // return all messages in JSON format
-        console.log(keys);
 
     });
 });
