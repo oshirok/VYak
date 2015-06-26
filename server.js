@@ -35,6 +35,7 @@ app.get('/api/messages', function (req, res) {
     Message.find(function (err, messages) {
         if (err)
             res.send(err);
+        //messages now shown from newest to oldest
         res.json(messages.reverse());
 
     });
@@ -57,7 +58,8 @@ app.post('/api/messages', function (req, res) {
             if (err)
                 res.send(err)
             io.sockets.emit('please_update_now');
-            res.json(messages);
+            //puts new message on top, done to eliminate ~100ms placement on bottom
+            res.json(messages.reverse());
         });
     });
 });
