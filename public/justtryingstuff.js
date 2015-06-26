@@ -3,6 +3,7 @@
 // public/core.js
 var vertaYak = angular.module('vertaYak', ['ngMaterial']);
 
+// Needed to config the theme
 vertaYak.config(function ($mdThemingProvider) {
     $mdThemingProvider
         .theme('default')

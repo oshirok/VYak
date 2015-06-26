@@ -12,3 +12,7 @@
 .banner {
     background-color: orange
 }
+
+.body {
+    max-width: 720px;
+}
