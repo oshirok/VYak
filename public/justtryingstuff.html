@@ -2,12 +2,13 @@
 <html >
   <head>
     <meta charset="UTF-8">
-    <title>Angular Material Basic App</title>
+    <title>VertaYak</title>
     
     
     
     
-        <link rel="stylesheet" href="justtryingstuff.css">
+        <link rel="stylesheet" href="justtryingstuff.css"><!-- add CSS -->
+		<link rel="shortcut icon" href="images/favicon.ico"><!-- add favicon -->
 
     
     
@@ -48,7 +49,7 @@
                       <md-whiteframe class="md-whiteframe-z1" layout layout-align="left center" ng-repeat="message in messages">
                           <div layout="column">
                               <h3 class="md-title">{{message.text}}</h3>
-                              <p><span>32</span> pts. <span>Upvote.</span> <span>Downvote.</span> Submitted <span data-livestamp={{message.timestamp}}></span></p>
+                              <p><span>{{message.vote}}</span> pts. <input type="image" src="/images/ic_exposure_plus_1_black_24dp_1x.png" ng-click="upVote()"/><input type="image" src="/images/ic_exposure_neg_1_black_24dp_1x.png" ng-click="downVote()"/> Submitted <span data-livestamp={{message.timestamp}}></span></p>
                           </div>
                       </md-whiteframe>
                   </md-content>
