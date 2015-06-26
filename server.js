@@ -23,7 +23,7 @@ app.use(methodOverride());
 
 // Models for database
 var Message = mongoose.model('Message', {
-    timestamp : Number,
+    timestamp : String,
     text : String,
 });
 
