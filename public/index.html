@@ -35,6 +35,8 @@
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script><!-- load angular -->
     <script src="core.js"></script>
     <script src="https://cdn.socket.io/socket.io-1.3.5.js"></script>
+	<script src="\js\moment.js"></script>
+	<script src="\js\livestamp.js"></script>
     <script>
         var socket = io();
     </script>
@@ -57,7 +59,7 @@
                 <div class="message-list" ng-repeat="messages in messages">
                     <label>
                         <!-- DISPLAY THE MESSAGES HERE -->
-                        <h4>{{ messages.text }} <sub>{{messages.timestamp}}</sub></h4>
+                        <h4>{{ messages.text }} <span data-livestamp={{messages.timestamp}}></span></h4>
                     </label>
                 </div>
 
