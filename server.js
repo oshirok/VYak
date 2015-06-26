@@ -25,18 +25,18 @@ app.use(methodOverride());
 var Message = mongoose.model('Message', {
     timestamp : Number,
     text : String,
-    //vote: number
+    vote: Number
 });
 
 // Making RESful API routes
 // API: Get messages
 app.get('/api/messages', function (req, res) {
     
-    Message.find(function (err, messages) {
+    Message.find({}).sort({timestamp: -1}).exec(function (err, messages) {
         if (err)
             res.send(err);
         //messages now shown from newest to oldest
-        res.json(messages.reverse());
+        res.json(messages);
 
     });
 });
@@ -48,26 +48,69 @@ app.post('/api/messages', function (req, res) {
     Message.create({
         timestamp: new Date().getTime()/1000,
         text: req.body.text,
-        //vote: 1,
+        vote: 1,
         done: false
     }, function (err, messages) {
         if (err)
             res.send(err);
         
         // return all messages after you create another
-        Message.find(function (err, messages) {
+        Message.find({}).sort({ timestamp: -1 }).exec(function (err, messages) {
             if (err)
-                res.send(err)
-            io.sockets.emit('please_update_now');
-            //puts new message on top, done to eliminate ~100ms placement on bottom
-            res.json(messages.reverse());
+                res.send(err);
+            //messages now shown from newest to oldest
+            res.json(messages);
+
         });
     });
 });
 
-/* API: Todo: Upvote a message */
-
-/* API: Todo: Downvote a message */ 
+/* API: Upvote a message */
+app.post('/api/upvote', function (req, res) {
+    var message_id = req.param('_id');
+    Message.findOne({ _id: message_id }, function (err, message) {
+        vote_count = message.vote + 1;
+        Message.findByIdAndUpdate(message_id, {
+            $set: {
+                'vote': vote_count
+            }
+        }, function (err, messages) {
+            if (err)
+                res.send(err);
+            
+            // return all messages after you create another
+            Message.find({}).sort({ timestamp: -1 }).exec(function (err, messages) {
+                if (err)
+                    res.send(err);
+                //messages now shown from newest to oldest
+                res.json(messages);
+            });
+        });
+    });
+});
+/* API: Downvote a message */
+app.post('/api/downvote', function (req, res) {
+    var message_id = req.param('_id');
+    Message.findOne({ _id: message_id }, function (err, message) {
+        vote_count = message.vote - 1;
+        Message.findByIdAndUpdate(message_id, {
+            $set: {
+                'vote': vote_count
+            }
+        }, function (err, messages) {
+            if (err)
+                res.send(err);
+            
+            // return all messages after you create another
+            Message.find({}).sort({ timestamp: -1 }).exec(function (err, messages) {
+                if (err)
+                    res.send(err);
+                //messages now shown from newest to oldest
+                res.json(messages);
+            });
+        });
+    });
+}); 
 
 // HTTP: serve files from the public folder
 app.use(express.static(__dirname + '/public'));
